@@ -52,3 +52,10 @@ void keyPressed() {
       }
     } 
 }
+
+void animateLine(Line toAnimate) {
+  int framesToAnim = 60;
+  line(toAnimate.origin.x_coord, toAnimate.origin.y_coord, 
+  toAnimate.origin.x_coord + float(frameCount % framesToAnim) / framesToAnim * (toAnimate.destination.x_coord - toAnimate.origin.x_coord), 
+ toAnimate.origin.y_coord + float(frameCount % framesToAnim) / framesToAnim * (toAnimate.destination.y_coord - toAnimate.origin.y_coord));
+}
