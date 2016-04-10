@@ -16,7 +16,7 @@ class Grid {
           corners[k] = new Point(i * 320, j * 240);
         }
         else
-          corners[k] = new Point(i * 320 * (random(0.65, 1)), j * 240 * (random(0.65, 1)));
+          corners[k] = new Point(i * (width/4) * (random(0.65, 1)), j * (height/3) * (random(0.65, 1)));
         k++;
       }
     }
