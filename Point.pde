@@ -10,8 +10,3 @@ public class Point {
   boolean insideOutline(Outline out) {
     return out.pointInside(x_coord, y_coord);
   }
-  
-  boolean touchingSpiralLine(Spiral sp) {
-    return true;
-  }
-}

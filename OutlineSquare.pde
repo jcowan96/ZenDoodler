@@ -2,7 +2,7 @@ class OutlineSquare extends Outline {
   Point topLeft; //Top left corner
   Point bottomRight; //Bottom right corner
   
-  OutlineSquare(Point tl, Point br) {
+  OutlineSquare(Point tl, Point br) { //Fixes positions of topLeft and bottomRight point
     if (tl.x_coord > br.x_coord) {
       float temp = tl.x_coord;
       tl.x_coord = br.x_coord;

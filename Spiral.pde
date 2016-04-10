@@ -25,29 +25,6 @@ public class Spiral {
     float newy = nextline.origin.y_coord - stepSizey*(nextline.origin.y_coord - nextline.destination.y_coord);
     return new Line(prevline.destination, new Point(newx, newy));
   }
-  
-  /*Draw first line of a spiral inside an outline
-  Point drawUpLeft(Outline out) {
-    Point point = new Point(origin.x_coord, origin.y_coord); //Shallow copy
-    stroke(255);
-    while (point.insideOutline(out)) {
-      point.x_coord--;
-      point.y_coord--;
-     // delay(100);
-      line(origin.x_coord, origin.y_coord, point.x_coord, point.y_coord);
-    }
-    line(origin.x_coord, origin.y_coord, point.x_coord, point.y_coord);
-    return point;
-    } 
-    
-    
-  Point drawFourLines(Outline out) {
-    Point point = this.drawUpLeft(out);
-    
-    
-    return point;
-  } */
-
 }
     
   
