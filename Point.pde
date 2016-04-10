@@ -7,6 +7,8 @@ public class Point {
     y_coord = y;
   }
   
+  //Returns true if the point is inside an outline
   boolean insideOutline(Outline out) {
     return out.pointInside(x_coord, y_coord);
   }
+}

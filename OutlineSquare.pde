@@ -18,6 +18,7 @@ class OutlineSquare extends Outline {
     this.bottomRight = br;
   }
   
+  //Draws 4 lines of a rectangle based on top right and bottom left points
   void drawSelf(int col) {
     stroke(col);
     line(topLeft.x_coord, topLeft.y_coord, bottomRight.x_coord, topLeft.y_coord);
@@ -26,10 +27,12 @@ class OutlineSquare extends Outline {
     line(topLeft.x_coord, bottomRight.y_coord, topLeft.x_coord, topLeft.y_coord);
   }
   
+  //Returns true if there's a point inside the rectangle
   boolean pointInside(float x, float y) {
     return (x > topLeft.x_coord && x < bottomRight.x_coord && y > topLeft.y_coord && y < bottomRight.y_coord);
   }
   
+  //Returns ArrayList of lines
   ArrayList<Line> getLines() {
    ArrayList<Line> temp = new ArrayList<Line>();
    temp.add(new Line(topLeft, new Point(bottomRight.x_coord, topLeft.y_coord))); 
@@ -40,10 +43,12 @@ class OutlineSquare extends Outline {
    return temp;
   }
   
+  //Returns Area of Square
   float getArea() {
     return Math.abs(topLeft.x_coord - bottomRight.x_coord) * (topLeft.y_coord - bottomRight.y_coord);
   }
   
+  //Comparison based on Area
   int compareTo(Object o) {
     if (o == this)
       return 0;
