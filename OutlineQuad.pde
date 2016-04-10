@@ -1,29 +1,22 @@
-class OutlineSquare extends Outline {
+class OutlineQuad extends Outline {
   Point topLeft; //Top left corner
   Point bottomRight; //Bottom right corner
+  Point topRight;
+  Point bottomLeft;
   
-  OutlineSquare(Point tl, Point br) {
-    if (tl.x_coord > br.x_coord) {
-      float temp = tl.x_coord;
-      tl.x_coord = br.x_coord;
-      br.x_coord = temp;
-    }
-    if (tl.y_coord > br.y_coord) {
-      float temp = tl.y_coord;
-      tl.y_coord = br.y_coord;
-      br.y_coord = temp;
-    }
-    
+  OutlineQuad(Point tl, Point br, Point tr, Point bl) {
     this.topLeft = tl;
     this.bottomRight = br;
+    this.topRight = tr;
+    this.bottomLeft = bl;
   }
   
   void drawSelf(int col) {
     stroke(col);
-    line(topLeft.x_coord, topLeft.y_coord, bottomRight.x_coord, topLeft.y_coord);
-    line(bottomRight.x_coord, topLeft.y_coord, bottomRight.x_coord, bottomRight.y_coord);
-    line(bottomRight.x_coord, bottomRight.y_coord, topLeft.x_coord, bottomRight.y_coord);
-    line(topLeft.x_coord, bottomRight.y_coord, topLeft.x_coord, topLeft.y_coord);
+    line(topLeft.x_coord, topLeft.y_coord, bottomLeft.x_coord, bottomLeft.y_coord);
+    line(bottomLeft.x_coord, bottomLeft.y_coord, bottomRight.x_coord, bottomRight.y_coord);
+    line(bottomRight.x_coord, bottomRight.y_coord, topRight.x_coord, topRight.y_coord);
+    line(topRight.x_coord, topRight.y_coord, topLeft.x_coord, topLeft.y_coord);
   }
   
   boolean pointInside(float x, float y) {
@@ -32,10 +25,10 @@ class OutlineSquare extends Outline {
   
   ArrayList<Line> getLines() {
    ArrayList<Line> temp = new ArrayList<Line>();
-   temp.add(new Line(topLeft, new Point(bottomRight.x_coord, topLeft.y_coord))); 
-   temp.add(new Line(new Point(bottomRight.x_coord, topLeft.y_coord), bottomRight));
-   temp.add(new Line(bottomRight, new Point(topLeft.x_coord, bottomRight.y_coord)));
-   temp.add(new Line(new Point(topLeft.x_coord, bottomRight.y_coord), topLeft));
+   temp.add(new Line(topLeft, bottomLeft)); 
+   temp.add(new Line(bottomLeft, bottomRight));
+   temp.add(new Line(bottomRight, topRight));
+   temp.add(new Line(topRight, topLeft));
    
    return temp;
   }
