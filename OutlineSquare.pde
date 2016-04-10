@@ -65,7 +65,7 @@ class OutlineSquare extends Outline {
         return 0;
     }
     else {
-      System.out.println("You fucked up hard somewhere");
+      println("You fucked up hard somewhere");
       return 0;
     }
       

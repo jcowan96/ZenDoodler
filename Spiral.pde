@@ -7,7 +7,7 @@ public class Spiral {
   Spiral(Point p, Outline out) {
     this.origin = p;
     this.out = out;
-    lines = ((OutlineSquare) out).getLines();
+    lines = ((OutlineQuad) out).getLines();
   }
 
   //Updates line position
